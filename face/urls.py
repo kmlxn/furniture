@@ -1,3 +1,6 @@
 from django.conf.urls import url
+from . import views
 
-urlpatterns = []
+urlpatterns = [
+    url(r'^$', views.get_index_page, name='index_page'),
+]
