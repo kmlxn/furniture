@@ -1,0 +1,126 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мебельная фирма Izdiyod Abu-Said</title>
+    <link rel="icon" href="{% static 'face/img/favicon.ico' %}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{% static 'face/img/favicon.ico' %}" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'face/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'face/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'face/css/media-queries.css' %}" />
+    <link rel="stylesheet" href="{% static 'face/css/tipsy.css' %}" />
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="sidebar">
+            <a href="/" id="logo"> <img src="{% static 'face/img/logo.png' %}" alt=""  /> </a>
+            <ul id="navigation">
+                <li><a href="#home" class="active">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#portfolio">Каталог</a></li>
+                <li><a href="#skills">Контакты</a></li>
+            </ul>
+        </div>
+
+        <div id="container">
+            <div class="page" id="home">
+                <div class="page_content">
+                    <div class="space"></div>
+                    <div class="clear"></div>
+                    <div class="one_half first">
+                        <div class="column_content">
+                            <h4>Добро пожаловать на сайт мебельной фирмы<br> Izdiyod Abu-Said<br> в городе Ташкенте.</h4>
+                        </div>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+            </div>
+            <div class="page" id="about">
+                <h3 class="page_title">О нас</h3>
+                <div class="page_content">
+                    <h3>Фирма занимается выпуском серийной мебели, как:</h3>
+                    <ul>
+                        <li><h4>Спальная мебель;</h4></li>
+                        <li><h4>Стенки и горки;</h4></li>
+                        <li><h4>Горки-уголки;</h4></li>
+                    </ul>
+                    <br/>
+                    <h3>Также мы делаем индивидуальную мебель на заказ:</h3>
+                    <ul>
+                        <li><h4>Кухонная мебель;</h4></li>
+                        <li><h4>Компьютерные и письменные столы;</h4></li>
+                        <li><h4>Спальная мебель (Кровати, шкафы, комоды, тумбы и т.д.);</h4></li>
+                        <li><h4>Детская мебель;</h4></li>
+                        <li><h4>Офисная мебель(Столы, журнальные столики, шкафы и т.д.);</h4></li>
+                        <li><h4>Прихожие;</h4></li>
+                        <li><h4>Мебель для гостинниц;</h4></li>
+                        <li><h4>Витрины для магазинов.</h4></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page" id="portfolio">
+                <h3 class="page_title"> Каталог</h3>
+                <div class="page_content">
+                    <h3>Уточнить цены вы можете по телефону в разделе "Контакты".</h3>
+                    <ul id="works_filter">
+                        <li><a href="#" data-filter="*" class="selected">Показать все</a></li>
+                        {% for category in categories %}
+                            <li><a href="#" data-filter="{{ category.slug }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <div class="clear"></div>
+
+                    <div id="gal" class="no-touch">
+                        <div class="wrap">
+                            {% for item in items %}
+                                <div class="box {{ item.get_categories }}">
+                                    <a href="{{ item.image.url }}" title="{{ item.name }}" class="open-popup-link">
+                                        <div class="boxInner">
+                                            <img src="{{ item.image.url }}" />
+                                            <div class="titleBox">{{ item.name }}</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+                <div class="page" id="skills">
+                    <h3 class="page_title">Контакты</h3>
+                    <div class="page_content">
+                        <h2>E-mail адрес: saidhon93@gmail.com</h2>
+                        <h2>Телефон: </h2>
+                        <ul>
+                            <li><h3>+998(98)300-64-82</h3></li>
+                            <li><h3>+998(97)700-44-96</h3></li>
+                        </ul>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <h4>&copy Izdiyod Abu-Said</h4>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <a class="gotop" href="#top">Вверх</a>
+    </div>
+
+    <script type="text/javascript" src="{% static 'face/js/jquery-1.7.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'face/js/jquery.smooth-scroll.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'face/js/waypoints.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'face/js/jquery.magnific-popup.min.js' %}"></script>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{% static 'face/js/setup.js' %}"></script>
+</body>
+</html>
