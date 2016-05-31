@@ -124,3 +124,10 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media/')
+
+
+# import deploy settings such as secret key
+try:
+    from .deploy_settings import *
+except ImportError:
+    pass
